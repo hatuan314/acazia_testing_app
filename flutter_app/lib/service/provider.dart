@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutterapp/models/model.dart';
 import 'package:flutterapp/service/web_service.dart';
 

@@ -31,8 +31,6 @@ dependencies:
   shared_preferences: ^0.5.6+3
   # Font Awesome
   font_awesome_flutter: ^8.8.1
-  # Get It
-  get_it: ^4.0.1
   # Flutter ScreenUtil
   flutter_screenutil: ^1.1.0
   # Equatable
