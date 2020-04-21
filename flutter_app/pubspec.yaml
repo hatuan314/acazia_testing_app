@@ -14,7 +14,7 @@ description: A new Flutter application.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -43,6 +43,10 @@ dependencies:
   loading: ^1.0.2
   # Flip card
   flip_card: ^0.4.4
+  # Date Format
+  intl: ^0.16.1
+  # Auto Resize Text
+  auto_size_text: ^2.1.0
 
 dev_dependencies:
   flutter_test:

@@ -15,4 +15,9 @@ class Street {
     data['name'] = this.name;
     return data;
   }
+
+
+  String getAddress() {
+    return '$number $name';
+  }
 }

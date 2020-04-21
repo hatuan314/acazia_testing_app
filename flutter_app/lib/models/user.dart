@@ -78,6 +78,7 @@ class Person {
     data['nat'] = this.nat;
     return data;
   }
+
 }
 
 

@@ -39,10 +39,10 @@ class SavePersonOnPressEvent extends HomeEvent {
 
 }
 
-class PersonTabOnFlipEvent extends HomeEvent {
+class SelecPersonTabOnPressEvent extends HomeEvent {
   final int tabIndex;
 
-  PersonTabOnFlipEvent(this.tabIndex);
+  SelecPersonTabOnPressEvent(this.tabIndex);
   @override
   // TODO: implement props
   List<Object> get props => [this.tabIndex];
