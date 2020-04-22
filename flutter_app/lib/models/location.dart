@@ -32,22 +32,4 @@ class Location {
         ? new Timezone.fromJson(json['timezone'])
         : null;
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.street != null) {
-      data['street'] = this.street.toJson();
-    }
-    data['city'] = this.city;
-    data['state'] = this.state;
-    data['country'] = this.country;
-    data['postcode'] = this.postcode;
-    if (this.coordinates != null) {
-      data['coordinates'] = this.coordinates.toJson();
-    }
-    if (this.timezone != null) {
-      data['timezone'] = this.timezone.toJson();
-    }
-    return data;
-  }
 }

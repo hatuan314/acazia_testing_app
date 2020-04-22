@@ -48,37 +48,6 @@ class Person {
     nat = json['nat'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['gender'] = this.gender;
-    if (this.name != null) {
-      data['name'] = this.name.toJson();
-    }
-    if (this.location != null) {
-      data['location'] = this.location.toJson();
-    }
-    data['email'] = this.email;
-    if (this.login != null) {
-      data['login'] = this.login.toJson();
-    }
-    if (this.dob != null) {
-      data['dob'] = this.dob.toJson();
-    }
-    if (this.registered != null) {
-      data['registered'] = this.registered.toJson();
-    }
-    data['phone'] = this.phone;
-    data['cell'] = this.cell;
-    if (this.id != null) {
-      data['id'] = this.id.toJson();
-    }
-    if (this.picture != null) {
-      data['picture'] = this.picture.toJson();
-    }
-    data['nat'] = this.nat;
-    return data;
-  }
-
 }
 
 

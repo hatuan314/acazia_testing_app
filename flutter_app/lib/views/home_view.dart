@@ -34,10 +34,14 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
             ),
           );
         else if (state is HomeFailureState) {
-          return Container(
-            color: Colors.black87,
-            alignment: Alignment.center,
-            child: Text("Error"),
+          return Scaffold(
+            body: Container(
+              color: Colors.black87,
+              alignment: Alignment.center,
+              child: Text("Error", style: TextStyle(
+                color: Colors.white
+              ),),
+            ),
           );
         } else {
           return Scaffold(

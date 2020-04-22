@@ -25,16 +25,4 @@ class Login {
     sha1 = json['sha1'];
     sha256 = json['sha256'];
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['uuid'] = this.uuid;
-    data['username'] = this.username;
-    data['password'] = this.password;
-    data['salt'] = this.salt;
-    data['md5'] = this.md5;
-    data['sha1'] = this.sha1;
-    data['sha256'] = this.sha256;
-    return data;
-  }
 }

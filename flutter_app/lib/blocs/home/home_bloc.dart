@@ -15,7 +15,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   @override
   // TODO: implement initialState
-  HomeState get initialState => HomeLoadingState(this._people, this._tabIndex);
+  HomeState get initialState => HomeLoadingState(this._people, this._tabIndex, this.favoritePeople);
 
   @override
   Stream<HomeState> mapEventToState(HomeEvent event) async* {
@@ -32,7 +32,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   Stream<HomeState> _mapGetAllPersonsToState() async* {
-    yield HomeLoadingState(this._people, this._tabIndex);
+    yield HomeLoadingState(this._people, this._tabIndex, this.favoritePeople);
     try {
       var result = await _repository.fetchAllPersonsRepository();
       if (_people == null) {
@@ -40,34 +40,34 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       } else {
         _people = result;
       }
-      yield HomeSuccessState(this.favoritePeople, this._people, this._tabIndex);
+      yield HomeSuccessState(this._people, this._tabIndex, this.favoritePeople);
     } catch (e) {
       yield HomeFailureState(e.toString());
     }
   }
 
   Stream<HomeState> _mapDismissPersonToState(Person person) async* {
-    yield PersonWaitingState(this._people, this._tabIndex);
+    yield PersonWaitingState(this._people, this._tabIndex, this.favoritePeople);
     this._people.remove(person);
     if (this._people.length == 0)
       yield* _mapGetAllPersonsToState();
     else
-      yield HomeSuccessState(this.favoritePeople, this._people, this._tabIndex);
+      yield HomeSuccessState(this._people, this._tabIndex, this.favoritePeople);
   }
 
   Stream<HomeState> _mapSavePersonToState(Person person) async* {
-    yield PersonWaitingState(this._people, this._tabIndex);
+    yield PersonWaitingState(this._people, this._tabIndex, this.favoritePeople);
     this._people.remove(person);
     this.favoritePeople.add(person);
     if (this._people.length == 0)
       yield* _mapGetAllPersonsToState();
     else
-      yield HomeSuccessState(this.favoritePeople, this._people, this._tabIndex);
+      yield HomeSuccessState(this._people, this._tabIndex, this.favoritePeople);
   }
 
   Stream<HomeState> _mapPersonTabToState(int tabIndex) async* {
-    yield PersonWaitingState(this._people, this._tabIndex);
+    yield PersonWaitingState(this._people, this._tabIndex, this.favoritePeople);
     this._tabIndex = tabIndex;
-    yield HomeSuccessState(this.favoritePeople, this._people, this._tabIndex);
+    yield HomeSuccessState(this._people, this._tabIndex, this.favoritePeople);
   }
 }

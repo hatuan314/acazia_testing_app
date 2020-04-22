@@ -10,11 +10,4 @@ class Dob {
     date = DateFormat('dd/MM/yyyy').format(DateTime.parse(json['date']));
     age = json['age'].toString();
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['date'] = this.date;
-    data['age'] = this.age;
-    return data;
-  }
 }

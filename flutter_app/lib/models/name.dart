@@ -15,11 +15,4 @@ class Name {
     return '$first $last';
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['title'] = this.title;
-    data['first'] = this.first;
-    data['last'] = this.last;
-    return data;
-  }
 }

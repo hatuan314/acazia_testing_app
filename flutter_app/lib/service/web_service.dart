@@ -8,21 +8,16 @@ const String baseURL = 'https://randomuser.me/api/';
 
 class WebService {
 
-  Dio setupDio({String accessToken, String contentType}) {
-    var token;
-
-    if(accessToken!=null){
-      token = 'Bearer $accessToken';
-    }
+  Dio setupDio() {
 
     Dio dio = Dio(
         BaseOptions(
           baseUrl: baseURL,
-          contentType: contentType,
           connectTimeout: 5000,
           receiveTimeout: 5000,
         )
     );
+
     dio.interceptors.add(
         _setupLoggingInterceptor()
     ); // setup logging interceptors
@@ -93,7 +88,7 @@ class WebService {
     if (response != null && response.statusCode != 200) {
       String errorResponse = response.body;
 
-      if (response.statusCode == 401 || response.statusCode == 401) {
+      if (response.statusCode == 401) {
         if (errorResponse.contains('error')) {
           try {
             var errorJson = json.decode(errorResponse);

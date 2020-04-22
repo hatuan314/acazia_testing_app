@@ -10,12 +10,4 @@ class Picture {
     medium = json['medium'];
     thumbnail = json['thumbnail'];
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['large'] = this.large;
-    data['medium'] = this.medium;
-    data['thumbnail'] = this.thumbnail;
-    return data;
-  }
 }

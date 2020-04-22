@@ -2,14 +2,15 @@ part of 'home_bloc.dart';
 
 abstract class HomeState extends Equatable {
   final List<Person> people;
+  final List<Person> favoritePeople;
   final int tabIndex;
 
-  HomeState(this.people, this.tabIndex);
+  HomeState(this.people, this.tabIndex, this.favoritePeople);
 }
 
 class PersonWaitingState extends HomeState {
-  PersonWaitingState(List<Person> people, int tabIndex)
-      : super(people, tabIndex);
+  PersonWaitingState(List<Person> people, int tabIndex, List<Person> favoritePeople) : super(people, tabIndex, favoritePeople);
+
 
   @override
   // TODO: implement props
@@ -17,7 +18,8 @@ class PersonWaitingState extends HomeState {
 }
 
 class HomeLoadingState extends HomeState {
-  HomeLoadingState(List<Person> people, int tabIndex) : super(people, tabIndex);
+  HomeLoadingState(List<Person> people, int tabIndex, List<Person> favoritePeople) : super(people, tabIndex, favoritePeople);
+
 
   @override
   // TODO: implement props
@@ -25,10 +27,8 @@ class HomeLoadingState extends HomeState {
 }
 
 class HomeSuccessState extends HomeState {
-  final List<Person> favoritePeople;
+  HomeSuccessState(List<Person> people, int tabIndex, List<Person> favoritePeople) : super(people, tabIndex, favoritePeople);
 
-  HomeSuccessState(this.favoritePeople, List<Person> people, int tabIndex)
-      : super(people, tabIndex);
 
   @override
   // TODO: implement props
@@ -38,8 +38,7 @@ class HomeSuccessState extends HomeState {
 class HomeFailureState extends HomeState {
   final String error;
 
-  HomeFailureState(this.error, {List<Person> people, int tabIndex})
-      : super(people, tabIndex);
+  HomeFailureState(this.error, {List<Person> people, int tabIndex, List<Person> favoritePeople}) : super(people, tabIndex, favoritePeople);
 
   @override
   // TODO: implement props

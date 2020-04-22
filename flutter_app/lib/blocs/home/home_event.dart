@@ -25,7 +25,7 @@ class DismissPersonOnPressEvent extends HomeEvent {
 
   @override
   // TODO: implement props
-  List<Object> get props => [this.person];
+  List<Object> get props => [person];
 
 }
 

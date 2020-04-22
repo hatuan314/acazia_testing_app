@@ -69,7 +69,6 @@ class FavoriteViewState extends State<FavoriteView> {
         itemCount: this.widget.people.length,
         itemBuilder: (context, index) {
           Person person = this.widget.people[index];
-          print('${person.toJson()}');
           return _favoritePersonElementWidget(person);
         });
   }
